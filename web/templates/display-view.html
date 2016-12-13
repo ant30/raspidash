@@ -1,0 +1,14 @@
+{{ template "layouts/base.html" . }}
+
+{{ define "title" }}
+Settings for  {{ .Name }}
+{{ end }}
+
+{{ define "content" }}
+  <h1>Display Info</h1>
+  <p>This is the info about this screen:</p>
+  <ul>
+    <li><strong>Name:</strong> {{ .Name }}</li>
+    <li><strong>Url:</strong> {{ .Url }}</li>
+  </ul>
+{{ end }}
