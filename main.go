@@ -5,10 +5,9 @@ import (
     "log"
     "os"
     "github.com/ant30/raspidash/web"
+    "github.com/ant30/raspidash/commands"
 )
 
-var (
-)
 
 func main() {
     if len(os.Args) < 2 {
@@ -18,6 +17,8 @@ func main() {
     switch os.Args[1] {
         case "server":
             web.WebServer(os.Args[2:])
+        case "check":
+            commands.CheckSyntax(os.Args[2:])
         default:
             flag.PrintDefaults()
             os.Exit(1)
