@@ -18,7 +18,7 @@ var (
 )
 
 // Parse all of the bindata templates
-func init() {
+func LoadBinTemplates() {
   log.Printf("loading base layout")
   baseBytes, err := layoutsBaseHtmlBytes()
     if err != nil {

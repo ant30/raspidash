@@ -13,6 +13,7 @@ var (
 )
 
 func WebServer(args []string) {
+    LoadBinTemplates()
     log.Println("Doing this service discoverable")
     go discoverable.DoDiscoverable("tv1", 8000)
 
