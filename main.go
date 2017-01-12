@@ -19,6 +19,8 @@ func main() {
             web.WebServer(os.Args[2:])
         case "check":
             commands.CheckSyntax(os.Args[2:])
+        case "list":
+            commands.ListDevices(os.Args[2:])
         default:
             flag.PrintDefaults()
             os.Exit(1)

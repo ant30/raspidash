@@ -1,6 +1,19 @@
-hash: 44d66c31c0bfeb9bab632c3b13a56a3c25fca1b32f64970cd642d901542622e6
-updated: 2016-12-04T19:21:02.774349873+01:00
+hash: 0ab281eca170e9f7b35717938f5921282e7eb4a86381e3867351c767cc3baefb
+updated: 2016-12-30T19:56:17.089345932+01:00
 imports:
 - name: github.com/jteeuwen/go-bindata
   version: a0ff2567cfb70903282db057e799fd826784d41d
+- name: github.com/micro/mdns
+  version: cdf30746f9f70dc7a366d3d885792a092fd83102
+- name: github.com/miekg/dns
+  version: 00b8eaaab9411e1ff61e5030ef7e58bed412ad2a
+- name: golang.org/x/net
+  version: 8fd7f25955530b92e73e9e1932a41b522b22ccd9
+  subpackages:
+  - bpf
+  - context
+  - internal/iana
+  - internal/netreflect
+  - ipv4
+  - ipv6
 testImports: []

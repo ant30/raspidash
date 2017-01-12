@@ -1,3 +1,4 @@
 package: github.com/ant30/raspidash
 import:
   - package: github.com/jteeuwen/go-bindata
+  - package: github.com/micro/mdns
