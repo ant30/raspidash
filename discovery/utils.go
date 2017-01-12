@@ -4,7 +4,7 @@ import (
     "os"
 )
 
-func getHostname() (string) {
+func GetHostname() (string) {
     host, _ := os.Hostname()
     return host
 }

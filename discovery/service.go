@@ -6,6 +6,7 @@ import (
     "net"
     "os"
     "os/signal"
+    "strconv"
     "time"
     "github.com/micro/mdns"
 )
@@ -68,9 +69,12 @@ func getIPs() ([]net.IP) {
 }
 
 
-func (s Service) DoDiscoverable(hostname string, port int) {
+func (s Service) DoDiscoverable(hostname string, hostport string) {
     s.Service.host = hostname
-    s.Service.port = port
+
+    _, listenPort, _ := net.SplitHostPort(hostport)
+    intListenPort, _ := strconv.Atoi(listenPort)
+    s.Service.port = intListenPort
     info := []string{"A raspidash device"}
     // TODO: Using first by default, but this should be configurable
     log.Printf("IPs %v", getIPs()[:1])
