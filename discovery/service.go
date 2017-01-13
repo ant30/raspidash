@@ -121,14 +121,14 @@ func wait() {
     os.Exit(0)
 }
 
-func (c ListDevicesCache) isValid() (bool) {
+func (c ListDevicesCache) expired() (bool) {
     if c.services == nil {
-        return false
+        return true
     }
     if time.Now().Sub(c.updated) > dnsCacheExpiration  {
-        return false
+        return true
     }
-    return true
+    return false
 }
 
 func listDevices(timeout time.Duration) ([]ServiceDescription) {
@@ -167,7 +167,7 @@ func listDevices(timeout time.Duration) ([]ServiceDescription) {
 }
 
 func ListDevices() ([]ServiceDescription) {
-    if ! listDevicesCache.isValid() {
+    if listDevicesCache.expired() {
         listDevicesCache.services = listDevices(dnsSearchTimeout)
         listDevicesCache.updated = time.Now()
     }
