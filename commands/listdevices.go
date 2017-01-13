@@ -1,9 +1,9 @@
 package commands
 
 import (
-    "log"
     "flag"
     "github.com/ant30/raspidash/discovery"
+    "fmt"
 )
 
 var (
@@ -13,5 +13,7 @@ var (
 
 func ListDevices(args []string) {
     services := discovery.ListDevices()
-    log.Printf("Services:  %#v", services)
+    for _, s := range services {
+        fmt.Printf("%s\t%s\t%s\t%d\n", s.Name, s.Host, s.IPv4.String(), s.Port)
+    }
 }
