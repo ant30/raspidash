@@ -1,11 +1,26 @@
 {{ template "layouts/base.html" . }}
 
 {{ define "title" }}
-TV Screen Manager for {{ .Title }}
+{{ .Title }} Screen Manager
 {{ end }}
 
 {{ define "IndexViewActive"}} class="active" {{ end }}
 
 {{ define "content" }}
-<h1>Device list: {{ .Title }}</h1>
+<h1>Available devices</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>IP</th>
+  </thead>
+  <tbody>
+  {{ range .DeviceList }}
+  <tr>
+    <td><a href="http://{{.Host}}:{{.Port}}/">{{ .Name }}</a></td>
+    <td><a href="http://{{.IPv4}}:{{.Port}}/">{{ .IPv4 }}</a></td>
+  </tr>
+  {{ end }}
+  </tbody>
+</table>
 {{ end }}
